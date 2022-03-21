@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rotate</title>
+    <style>
+      .container {
+        overflow: scroll;
+        text-align: center;
+      }
+      .article {
+        width: 375px;
+      }
+      .background {
+        width: 375px;
+        position: fixed;
+        bottom: 0;
+      }
+      .background-wrap {
+        display: flex;
+        justify-content: center;
+      }
+      .circle {
+        width: 234px;
+        position: fixed;
+        bottom: 0;
+      }
+      .circle-wrap {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="article" src="./images/article.jpg" alt="article" />
+      <div class="background-wrap">
+        <img
+          class="background"
+          src="./images/background.png"
+          alt="background"
+        />
+      </div>
+      <div class="circle-wrap">
+        <img
+          id="circle"
+          class="circle"
+          src="./images/circle.png"
+          alt="circle"
+        />
+      </div>
+    </div>
+
+    <script>
+      let circle = document.querySelector("#circle");
+
+      window.addEventListener("scroll", function () {
+        let scrolled = window.scrollY;
+        // console.log(scrolled);
+        let degree = scrolled * 0.1;
+        // console.log("degree",degree);
+        circle.style.transform = `rotate(${degree}deg)`;
+      });
+    </script>
+  </body>
+</html>
